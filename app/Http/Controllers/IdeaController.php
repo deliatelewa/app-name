@@ -30,7 +30,7 @@ class IdeaController extends Controller
     // public function destroy($id){
     //     // dump("deleting");
     //     // where id=1;
-    //     //$idea = Idea::where('id', $id)->firstOrFail()->delete();
+    //     //$idea = Idea::where('id', $id)->first()->delete();
     //     Idea::where('id', $id)->firstOrFail()->delete();
 
     //     // $idea->delete();
@@ -38,8 +38,10 @@ class IdeaController extends Controller
     //     return( redirect()-> route('dashboard')->with('success','Idea deleted successfully!'));
     // }
 
-    public function destroy(Idea $idea){
-        $idea->delete();
+    public function destroy($id){
+        // $idea->delete();
+
+        Idea::where('id', $id)->firstOrFail()->delete();
 
         return( redirect()-> route('dashboard')->with('success','Idea deleted successfully!'));
     }

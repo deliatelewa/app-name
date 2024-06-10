@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class DashboardController extends Controller
 
         // search
         if(request()->has('search')){
-            $ideas = $ideas->where('content','like',request()->get('search',''));
+            $ideas = $ideas->where('content','like','%'. request()->get('search','').'%');
         }
         // $idea = new Idea([
         //     'content' => 'mayowa',

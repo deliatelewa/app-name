@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ProfileController;
@@ -51,3 +52,5 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+//comments
+Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('ideas.comments.store');
